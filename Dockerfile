@@ -10,4 +10,5 @@ RUN dnf install -y make jre ImageMagick graphviz xz pandoc wget python python-pi
 	mv pp /usr/bin/pp && \
 	pip install MarkdownPP
 
-
+RUN mkdir /book
+WORKDIR /book
