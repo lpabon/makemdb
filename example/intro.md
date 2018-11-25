@@ -4,6 +4,7 @@ header-includes:
   - \usepackage{amsmath}
   - \usepackage{algorithm}
   - \usepackage{algpseudocode}
+  - 
 ---
 
 # Introduction
@@ -36,6 +37,10 @@ How about displayed equations:
 $$
 y = -2.2x + 0.5
 $$
+
+## Golang code
+
+!INCLUDECODE "main.go" (go)
 
 ## Euclid's algo
 This is some text

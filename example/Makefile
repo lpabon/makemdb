@@ -1,10 +1,18 @@
 
 OUTPUT := out.pdf
+MARKDOWN_PP_EXCLUDE := reference,tableofcontents,latexrender
+# All: includecode, reference, tableofcontents, latexrender, includeurl, youtubeembed, include
 
 all: book
 
-docker-book:
-	pandoc *.md -o $(OUTPUT)
+./build:
+	mkdir ./build
+
+parse: ./build
+	markdown-pp *.md -e $(MARKDOWN_PP_EXCLUDE) -o ./build/out.md
+
+docker-book: parse
+	pandoc --toc --variable documentclass=book ./build/out.md -o $(OUTPUT)
 
 book:
 	docker run \
