@@ -236,3 +236,24 @@ This is a great time to build a more substantial program, to get used to
 reading and writing Rust code. In the next chapter, we’ll build a guessing game
 program. If you’d rather start by learning about how common programming
 concepts work in Rust, see Chapter 3.
+
+## Drawings
+
+### Graphviz
+Some text here
+
+!epub(![This is just a GraphViz diagram example](images/dot/sample.png))
+!pdf(![This is just a GraphViz diagram example](images/dot/sample.eps))
+
+### PlantUML
+Some text here
+
+!epub(![This PlantUML epub](images/uml/sample.png))
+!pdf(![This PlantUML pdf](images/uml/sample.eps))
+
+### Ditaa
+Some text here
+
+!epub(![Ditaa epub](images/ditaa/sample.png))
+!pdf(![Ditaa pdf](images/ditaa/sample.eps))
+
