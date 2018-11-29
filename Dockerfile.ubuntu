@@ -1,0 +1,16 @@
+FROM ubuntu
+LABEL maintainer Luis Pabon <lpabon@gmail.com>
+
+RUN apt-get -y update && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y install -y make default-jre imagemagick \
+		graphviz xz-utils xzdec pandoc wget \
+		python python-pip texlive-full texlive-lang-english && \
+    apt-get clean && \
+	apt-get autoclean && \
+	wget https://cdsoft.fr/pp/pp-linux-x86_64.txz && \
+	tar xJvf pp-linux-x86_64.txz && \
+	mv pp /usr/bin/pp && \
+	pip install MarkdownPP
+
+RUN mkdir /book
+WORKDIR /book
