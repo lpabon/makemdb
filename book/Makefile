@@ -51,12 +51,12 @@ markdownpp: $(BUILDDIR)
 pp: markdownpp
 	pp $(MARKDOWNPP_OUT) > $(PP_OUT)
 
-pdf-book: pp $(dot_eps) $(uml_eps)
+pdf-book: pp $(dot_eps) $(uml_eps) $(ditaa_eps)
 	pp -pdf $(MARKDOWNPP_OUT) > $(PP_OUT)
 	pandoc $(PANDOC_OPTIONS) latex/metadata.yml $(PP_OUT) -s -o $(OUTPUT).tex
 	pdflatex $(OUTPUT).tex
 
-epub-book: pp $(dot_png) $(uml_png)
+epub-book: pp $(dot_png) $(uml_png) $(ditaa_png)
 	pp -epub $(MARKDOWNPP_OUT) > $(PP_OUT)
 	pandoc $(PANDOC_OPTIONS) epub/metadata.yml $(PP_OUT) -s -o $(OUTPUT).epub
 
@@ -74,5 +74,6 @@ book:
 
 clean:
 	sudo rm -rf $(BUILDDIR)
+	sudo rm -f $(dot_eps) $(dot_png) $(uml_eps) $(uml_png) $(ditaa_eps) $(ditaa_png)
 
 .PHONY: clean all docker-book book pdf-book epub-book
