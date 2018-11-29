@@ -15,6 +15,6 @@ RUN dnf install -y \
 
 RUN wget http://downloads.sourceforge.net/ditaa-addons/DitaaEps-0_2.zip && \
     unzip DitaaEps-0_2.zip && \
-	mv DitaaEps/DitaaEps.jar /
+	mv DitaaEps/*.jar /
 RUN mkdir /book
 WORKDIR /book
