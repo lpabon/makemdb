@@ -7,5 +7,5 @@ header-includes:
   - \usepackage{amsmath}
   - \usepackage{algorithm}
   - \usepackage{algpseudocode}
-  - \usepackage{accanthis}
+  - \renewcommand*\rmdefault{dayrom}
 ---
