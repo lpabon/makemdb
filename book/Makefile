@@ -21,7 +21,7 @@ pp: markdownpp
 	pp $(MARKDOWNPP_OUT) > $(PP_OUT)
 
 docker-book: pp
-	pandoc --pdf-engine=xelatex --variable documentclass=book $(METADATA) $(PP_OUT) -s -o $(OUTPUT)
+	pandoc --number-sections --variable documentclass=book --highlight-style=code.theme $(METADATA) $(PP_OUT) -s -o $(OUTPUT)
 
 book:
 	sudo rm -rf $(BUILDDIR)

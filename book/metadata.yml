@@ -2,12 +2,11 @@
 title: "The title of this document"
 author: Luis Pabon
 keywords: [example, markdown, pandoc]
-header-includes:
-  - \usepackage{cleveref}
-  - \usepackage{amsmath}
-  - \usepackage{algorithm}
-  - \usepackage{algpseudocode}
-  - \renewcommand*\rmdefault{dayrom}
-  - \usepackage[english]{babel}
-  - \usepackage{blindtext}
+header-includes: |
+  \usepackage{algorithm}
+  \usepackage{algpseudocode}
+  \renewcommand*\rmdefault{dayrom}
+  \usepackage[english]{babel}
+  \usepackage{blindtext}
+  \input{style.tex}
 ---
