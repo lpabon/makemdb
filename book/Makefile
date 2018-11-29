@@ -8,7 +8,6 @@ OUTPUT := out.pdf
 
 # All: includecode, reference, tableofcontents, latexrender, includeurl, youtubeembed, include
 MARKDOWNPP_EXCLUDE := reference,tableofcontents,latexrender
-PANDOC_EXTENSIONS := +pandoc_title_block
 
 all: book
 
@@ -22,7 +21,7 @@ pp: markdownpp
 	pp $(MARKDOWNPP_OUT) > $(PP_OUT)
 
 docker-book: pp
-	pandoc --toc --variable documentclass=book $(METADATA) $(PP_OUT) -s -o $(OUTPUT)
+	pandoc --pdf-engine=xelatex --variable documentclass=book $(METADATA) $(PP_OUT) -s -o $(OUTPUT)
 
 book:
 	sudo rm -rf $(BUILDDIR)
@@ -34,6 +33,6 @@ book:
 	sudo chown $(USER) $(OUTPUT)
 
 clean:
-	rm -f $(OUTPUT)
+	sudo rm -rf $(BUILDDIR)
 
 .PHONY: clean all docker-book book
