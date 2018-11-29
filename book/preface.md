@@ -5,8 +5,12 @@
 
 This is a preface of the document.
 
+\Blindtext
+
 # Acknowledgements
 
-Add here more sections before the book starts
+Add here more sections before the book starts.
+
+\blindtext
 
 

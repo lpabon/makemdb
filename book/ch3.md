@@ -1,0 +1,3 @@
+# Sample Math book
+
+\blindmathpaper

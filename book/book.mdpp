@@ -1,6 +1,12 @@
 \frontmatter
+
 !INCLUDE "preface.md"
+
 \tableofcontents
 \mainmatter
+
 !INCLUDE "ch1.md"
+
 !INCLUDE "ch2.md"
+
+!INCLUDE "ch3.md"

@@ -4,7 +4,7 @@ METADATA := metadata.yml
 BUILDDIR := ./build
 MARKDOWNPP_OUT := $(BUILDDIR)/mdpp.md
 PP_OUT := $(BUILDDIR)/pp.md
-OUTPUT := out.pdf
+OUTPUT := book.pdf
 
 # All: includecode, reference, tableofcontents, latexrender, includeurl, youtubeembed, include
 MARKDOWNPP_EXCLUDE := reference,tableofcontents,latexrender

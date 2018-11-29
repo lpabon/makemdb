@@ -8,4 +8,6 @@ header-includes:
   - \usepackage{algorithm}
   - \usepackage{algpseudocode}
   - \renewcommand*\rmdefault{dayrom}
+  - \usepackage[english]{babel}
+  - \usepackage{blindtext}
 ---
