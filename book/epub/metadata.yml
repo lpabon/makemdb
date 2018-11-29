@@ -1,0 +1,10 @@
+---
+title:
+    - type: main
+      text: "The title of this document"
+creator:
+    - role: author
+      text: Luis Pabon
+publisher: Luis Pabon
+rights: (c) 2018 Luis Pabon
+---

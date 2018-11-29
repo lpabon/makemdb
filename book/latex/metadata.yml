@@ -8,5 +8,5 @@ header-includes: |
   \renewcommand*\rmdefault{dayrom}
   \usepackage[english]{babel}
   \usepackage{blindtext}
-  \input{style.tex}
+  \input{latex/style.tex}
 ---

@@ -4,10 +4,11 @@ METADATA := metadata.yml
 BUILDDIR := ./build
 MARKDOWNPP_OUT := $(BUILDDIR)/mdpp.md
 PP_OUT := $(BUILDDIR)/pp.md
-OUTPUT := book.pdf
+OUTPUT := book
 
 # All: includecode, reference, tableofcontents, latexrender, includeurl, youtubeembed, include
 MARKDOWNPP_EXCLUDE := reference,tableofcontents,latexrender
+PANDOC_OPTIONS := --number-sections --variable documentclass=book --highlight-style=code.theme
 
 all: book
 
@@ -20,8 +21,13 @@ markdownpp: $(BUILDDIR)
 pp: markdownpp
 	pp $(MARKDOWNPP_OUT) > $(PP_OUT)
 
-docker-book: pp
-	pandoc --number-sections --variable documentclass=book --highlight-style=code.theme $(METADATA) $(PP_OUT) -s -o $(OUTPUT)
+pdf-book: pp
+	pandoc $(PANDOC_OPTIONS) latex/metadata.yml $(PP_OUT) -s -o $(OUTPUT).pdf
+
+epub-book: pp
+	pandoc $(PANDOC_OPTIONS) epub/metadata.yml $(PP_OUT) -s -o $(OUTPUT).epub
+
+docker-book: pdf-book epub-book
 
 book:
 	sudo rm -rf $(BUILDDIR)
@@ -29,10 +35,11 @@ book:
 		--privileged \
 		-v $(shell pwd):/book \
 		quay.io/lpabon/makemdb \
-			make docker-book
-	sudo chown $(USER) $(OUTPUT)
+			make OUTPUT=$(OUTPUT) docker-book
+	sudo chown $(USER) $(OUTPUT).pdf
+	sudo chown $(USER) $(OUTPUT).epub
 
 clean:
 	sudo rm -rf $(BUILDDIR)
 
-.PHONY: clean all docker-book book
+.PHONY: clean all docker-book book pdf-book epub-book
