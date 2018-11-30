@@ -242,8 +242,7 @@ concepts work in Rust, see Chapter 3.
 ### Graphviz
 Some text here
 
-!epub(![This is just a GraphViz diagram example](images/dot/sample.png))
-!pdf(![This is just a GraphViz diagram example](images/dot/sample.eps))
+!ximage(This is just a GraphViz diagram example)(images/dot/sample)
 
 ### PlantUML
 Some text here

@@ -1,3 +1,6 @@
+!define(ximage)(!epub(![!1](!2.png)) !pdf(![!1](!2.eps)))
+
+
 \frontmatter
 
 !INCLUDE "preface.md"
