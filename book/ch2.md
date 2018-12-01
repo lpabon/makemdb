@@ -21,6 +21,10 @@ $$
 y = -2.2x + 0.5
 $$
 
+$$
+y = mx + b * s^(x^3)
+$$
+
 ## Golang code
 
 !INCLUDECODE "src/main.go" (go)

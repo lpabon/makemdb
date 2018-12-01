@@ -8,7 +8,8 @@ OUTPUT := book
 
 # All: includecode, reference, tableofcontents, latexrender, includeurl, youtubeembed, include
 MARKDOWNPP_EXCLUDE := reference,tableofcontents,latexrender
-PANDOC_OPTIONS := --number-sections --variable documentclass=book --highlight-style=code.theme
+PANDOC_OPTIONS := --number-sections --highlight-style=code.theme
+PANDOC_LATEX_OPTIONS := --variable documentclass=book --variable fontsize=12pt
 
 # Images
 dot_src := images/dot/sample.dot
@@ -17,6 +18,7 @@ ditaa_src := images/ditaa/sample.ditaa
 
 all: book
 
+###
 dot_png := $(dot_src:.dot=.png)
 dot_eps := $(dot_src:.dot=.eps)
 uml_png := $(uml_src:.uml=.png)
@@ -53,7 +55,10 @@ pp: markdownpp
 
 pdf-book: pp $(dot_eps) $(uml_eps) $(ditaa_eps)
 	pp -pdf $(MARKDOWNPP_OUT) > $(PP_OUT)
-	pandoc $(PANDOC_OPTIONS) latex/metadata.yml $(PP_OUT) -s -o $(OUTPUT).tex
+	pandoc $(PANDOC_OPTIONS) $(PANDOC_LATEX_OPTIONS) latex/metadata.yml $(PP_OUT) -s -o $(OUTPUT).tex
+	pdflatex $(OUTPUT).tex
+	makeindex -s latex/StyleInd.ist $(OUTPUT).idx
+	pdflatex $(OUTPUT).tex
 	pdflatex $(OUTPUT).tex
 
 epub-book: pp $(dot_png) $(uml_png) $(ditaa_png)
@@ -67,13 +72,17 @@ book:
 	docker run \
 		--privileged \
 		-v $(shell pwd):/book \
-		quay.io/lpabon/makemdb:fedora29 \
+		quay.io/lpabon/makemdb \
 			make OUTPUT=$(OUTPUT) docker-book
 	sudo chown $(USER) $(OUTPUT).pdf
 	sudo chown $(USER) $(OUTPUT).epub
 
 clean:
 	sudo rm -rf $(BUILDDIR)
+	sudo rm -f $(OUTPUT).aux $(OUTPUT).idx $(OUTPUT).epub $(OUTPUT).toc $(OUTPUT).log $(OUTPUT).pdf $(OUTPUT).tex $(OUTPUT).ilg $(OUTPUT).ind
 	sudo rm -f $(dot_eps) $(dot_png) $(uml_eps) $(uml_png) $(ditaa_eps) $(ditaa_png)
+	find . -type f -name "*eps-converted-to.pdf" -exec sudo rm -f {} \;
+
 
 .PHONY: clean all docker-book book pdf-book epub-book
+

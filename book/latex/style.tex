@@ -41,18 +41,18 @@
 %----------------------------------------------------------------------------------------
 %	MARGINS
 %----------------------------------------------------------------------------------------
-\usepackage{geometry} % Required for adjusting page dimensions and margins
-\geometry{
-	paper=a4paper, % Paper size, change to letterpaper for US letter size
-	top=3cm, % Top margin
-	bottom=3cm, % Bottom margin
-	left=3cm, % Left margin
-	right=3cm, % Right margin
-	headheight=14pt, % Header height
-	footskip=1.4cm, % Space from the bottom margin to the baseline of the footer
-	headsep=10pt, % Space from the top margin to the baseline of the header
-	%showframe, % Uncomment to show how the type block is set on the page
-}
+%\usepackage{geometry} % Required for adjusting page dimensions and margins
+%\geometry{
+%	paper=a4paper, % Paper size, change to letterpaper for US letter size
+%	top=3cm, % Top margin
+%	bottom=3cm, % Bottom margin
+%	left=3cm, % Left margin
+%	right=3cm, % Right margin
+%	headheight=14pt, % Header height
+%	footskip=1.4cm, % Space from the bottom margin to the baseline of the footer
+%	headsep=10pt, % Space from the top margin to the baseline of the header
+%	%showframe, % Uncomment to show how the type block is set on the page
+%}
 %----------------------------------------------------------------------------------------
 %	HEADERS AND FOOTERS
 %----------------------------------------------------------------------------------------
@@ -61,7 +61,7 @@
 
 \pagestyle{fancy} % Enable the custom headers and footers
 
-\renewcommand{\chaptermark}[1]{\markboth{\sffamily\normalsize\bfseries\chaptername\ \thechapter.\ #1}{}} % Styling for the current chapter in the header
+\renewcommand{\chaptermark}[1]{\markboth{\sffamily\normalsize\bfseries\ #1}{}} % Styling for the current chapter in the header
 \renewcommand{\sectionmark}[1]{\markright{\sffamily\normalsize\thesection\hspace{5pt}#1}{}} % Styling for the current section in the header
 
 \fancyhf{} % Clear default headers and footers
@@ -100,8 +100,8 @@
 
 % Boxed/framed environments
 \newtheoremstyle{ocrenumbox}% Theorem style name
-{0pt}% Space above
-{0pt}% Space below
+{5pt}% Space above
+{5pt}% Space below
 {\normalfont}% Body font
 {}% Indent amount
 {\small\bf\sffamily\color{ocre}}% Theorem head font
@@ -122,8 +122,8 @@
 \thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries---\nobreakspace#3.}}% Optional theorem note
 
 \newtheoremstyle{blacknumbox} % Theorem style name
-{0pt}% Space above
-{0pt}% Space below
+{5pt}% Space above
+{5pt}% Space below
 {\normalfont}% Body font
 {}% Indent amount
 {\small\bf\sffamily}% Theorem head font
@@ -179,7 +179,7 @@ leftmargin=0cm,
 rightmargin=0cm,
 innerbottommargin=5pt]{tBox}
 
-% Exercise box	  
+% Exercise box
 \newmdenv[skipabove=7pt,
 skipbelow=7pt,
 rightline=false,
@@ -194,7 +194,7 @@ innertopmargin=5pt,
 innerbottommargin=5pt,
 leftmargin=0cm,
 rightmargin=0cm,
-linewidth=4pt]{eBox}	
+linewidth=4pt]{eBox}
 
 % Definition box
 \newmdenv[skipabove=7pt,

@@ -1,6 +1,43 @@
+!comment(-----------------)
+!comment( image )
+!comment(-----------------)
 !define(ximage)(!epub(![!1](!2.png)) !pdf(![!1](!2.eps)))
 
+!comment(-----------------)
+!comment( MD to Latex )
+!comment(-----------------)
+!define(xmdtotex)(
+!exec
+~~~~
+echo '!1' | pandoc -t latex
+~~~~
+)
 
+!comment(-----------------)
+!comment( mkSection )
+!comment(-----------------)
+!define(mksection)(!epub(
+**!2** !ifne{!4}{}{_!4_}
+
+<blockquote>
+!3
+</blockquote>
+
+)
+!pdf(
+\begin{!1}!ifne{!4}{}{[!4] \index{!2! !4}}
+!xmdtotex(!3)
+\end{!1}))
+
+!comment(-----------------)
+!comment( Sections )
+!comment(-----------------)
+!define(xexample)(!mksection(example)(Example)(!1)(!2))
+!define(xproblem)(!mksection(problem)(Problem)(!1)(!2))
+!define(xremark)(!mksection(remark)(Remark)(!1)(!2))
+!define(xdefinition)(!mksection(definition)(Definition)(!1)(!2))
+!define(xnotation)(!mksection(notation)(Notation)(!1)(!2))
+!comment(--- DONE ---)
 \frontmatter
 
 !INCLUDE "preface.md"
@@ -13,3 +50,14 @@
 !INCLUDE "ch2.md"
 
 !INCLUDE "ch3.md"
+
+!comment(---- INDEX in PDF Only  ----)
+!comment(FROM http://www.LaTeXTemplates.com)
+!pdf(
+\cleardoublepage
+\phantomsection
+\setlength{\columnsep}{0.75cm}
+\addcontentsline{toc}{chapter}{{Index}}
+\printindex
+)
+

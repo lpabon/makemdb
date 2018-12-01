@@ -3,9 +3,9 @@ title: "The title of this document"
 author: Luis Pabon
 keywords: [example, markdown, pandoc]
 header-includes: |
+  \usepackage[paperwidth=7in, paperheight=10in, left=1.0in, top=0.75in, right=0.75in, bottom=0.75in, includehead, includefoot]{geometry}
   \usepackage{algorithm}
   \usepackage{algpseudocode}
-  \renewcommand*\rmdefault{dayrom}
   \usepackage[english]{babel}
   \usepackage{blindtext}
   \input{latex/style.tex}

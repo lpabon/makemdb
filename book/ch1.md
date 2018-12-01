@@ -11,6 +11,7 @@
 \Blindtext
 
 ### More sections
+!pdf(\index{More Sections})
 
 \Blindtext[4]
 
@@ -38,13 +39,25 @@ Given a vector space $E$, a norm on $E$ is an application, denoted $||\cdot||$, 
 \end{align}
 \end{definition}
 
+!xdefinition(
+The definition of `azul` is _blue_.
+)(azul)
+
+!xnotation(
+Given an open subset. This is a crazy notation.
+)
+
+!xremark(
+The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
+)
+
 \begin{notation}
 Given an open subset $G$ of $\mathbb{R}^n$, the set of functions $\varphi$ are:
 \begin{enumerate}
 \item Bounded support $G$;
 \item Infinitely differentiable;
 \end{enumerate}
-a vector space is denoted by $\mathcal{D}(G)$. 
+a vector space is denoted by $\mathcal{D}(G)$.
 \end{notation}
 
 \begin{remark}
@@ -83,13 +96,41 @@ The function $f$ has bounded support, we can take $A=\{x\in\mathbb{R}^2:|x-x^0|\
 \lipsum[2]
 \end{example}
 
+
+Here is a paragraph. With lots of useless information about this document
+which will never see the light of day.
+
+!xexample(
+The following is an example of how to do this in this language:
+
+```pascal
+a = 3
+```
+
+As as see here.  This is the end of the example.
+)(The important example)
+
+!xexample(
+Again without a name.
+
+The following is an example of how to do this in this language:
+
+```pascal
+a = 3
+```
+
+As as see here.  This is the end of the example.
+)
+
+Now this is not the example.
+
 \begin{exercise}
 This is a good place to ask a question to test learning progress or further cement ideas into students' minds.
 \end{exercise}
 
-\begin{problem}
+!xproblem(
 What is the average airspeed velocity of an unladen swallow?
-\end{problem}
+)
 
 Define a word to improve a students' vocabulary.
 
