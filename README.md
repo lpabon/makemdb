@@ -21,3 +21,5 @@ I wanted a way to create a pdf and have the ePub version be very similar
 to it. For that reason, PP is used as macros to manage high quality images
 in PDF and the correct representation in HTML of mini-sections(like Remark).
 
+A lot of the text is taken from the [Rust book](https://github.com/rust-lang/book) just
+as an example of what it would look like.
