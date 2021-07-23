@@ -1,6 +1,6 @@
 # makemdb
 
-`makemdb` is a suite tools managed by a single Makefile to create a PDF and ePub
+`makemdb` is a suite of tools managed by a single Makefile to create a PDF and ePub
 from the same markdown content. It is based on the following tools:
 
 * MarkdownPP: https://github.com/jreese/markdown-pp
