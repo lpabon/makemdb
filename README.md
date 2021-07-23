@@ -4,7 +4,7 @@
 from the same markdown content. It is based on the following tools:
 
 * MarkdownPP: https://github.com/jreese/markdown-pp
-* PP: http://cdsoft.fr/pp/
+* PP: http://christophe.delord.free.fr/pp/
 * Pandoc: https://pandoc.org
 
 Latex style based on:
